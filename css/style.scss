@@ -1,0 +1,1708 @@
+@charset 'utf-8';
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Satisfy&display=swap");
+
+$english: "Satisfy", cursive;
+$green: #159741;
+$black: #2f2f2f;
+
+$breakpoints: (
+    "sp": "screen and (max-width: 767px)",
+    "tab": "screen and (max-width: 1280px)",
+    "pc": "screen and (min-width: 1281px)",
+) !default;
+
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+body {
+    font-size: 16px;
+    color: #333;
+    font-family: "Noto Sans JP", sans-serif;
+
+    .container {
+        width: calc(100% - 30px);
+        max-width: 1080px;
+        margin: 0 auto;
+
+        img {
+            width: 100%;
+        }
+
+        a {
+            color: #333;
+            text-decoration: none;
+            transition: all 0.4s;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+// header
+
+header {
+    background: $black;
+
+    .container {
+        height: 90px;
+        width: auto;
+        margin: 0 70px 0 30px;
+        max-width: 1330px;
+        display: flex;
+        justify-content: space-between;
+
+        @include mq(sp) {
+            height: 60px;
+            margin: 0 16px;
+        }
+
+        .header-logo {
+            display: flex;
+            align-items: center;
+
+            @include mq(sp) {
+                width: 54px;
+            }
+
+            .header-logo-link {
+                height: 90px;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .header-list {
+            display: flex;
+
+            .header-item {
+                &:nth-of-type(n + 2) {
+                    margin-left: 40px;
+
+                    @include mq(sp) {
+                        margin-left: 20px;
+                    }
+                }
+
+                .header-item-link {
+                    height: 90px;
+                    color: #fff;
+                    font-family: $english;
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+
+                    @include mq(sp) {
+                        height: 60px;
+                        font-size: 0.875rem;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 100%;
+                        height: 1px;
+                        bottom: 25px;
+                        left: 0;
+                        background: $green;
+                        transition: all 0.4s;
+                        opacity: 0;
+
+                        @include mq(sp) {
+                            bottom: 15px;
+                        }
+                    }
+
+                    &:hover {
+                        opacity: 1;
+
+                        &::after {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// mv
+
+.mv {
+    background: $black;
+    position: relative;
+    height: 650px;
+    z-index: 10;
+
+    @include mq(sp) {
+        height: 308px;
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 75%;
+        height: 650px;
+        top: 0;
+        right: 0;
+        background: url(../img/mv.jpg) center center / cover no-repeat;
+        z-index: -10;
+
+        @include mq(sp) {
+            width: 82.1333%;
+            height: 308px;
+        }
+    }
+
+    .mv-textContents {
+        padding: 94px 0 0 178px;
+
+        @include mq(sp) {
+            padding: 30px 0 0 19px;
+        }
+
+        .mv-lead {
+            color: #fff;
+            font-size: 6.25rem;
+            font-family: $english;
+            line-height: 1;
+
+            @include mq(sp) {
+                font-size: 2.25rem;
+                line-height: 1.1944;
+            }
+
+            .mv-lead-inline {
+                color: $green;
+            }
+        }
+
+        .mv-text {
+            color: #fff;
+            font-size: 2rem;
+            letter-spacing: 0.05em;
+
+            @include mq(sp) {
+                font-size: 0.875rem;
+            }
+
+            &:first-of-type {
+                margin-top: 37px;
+                text-indent: 1rem;
+
+                @include mq(sp) {
+                    margin-top: 15px;
+                    text-indent: 0.5rem;
+                }
+            }
+
+            &:last-of-type {
+                margin-top: 21px;
+                padding: 9px 21px;
+                background: $green;
+                display: inline-block;
+                text-indent: -1.5rem;
+
+                @include mq(sp) {
+                    margin-top: 13px;
+                    padding: 5px 8px 5px 3px;
+                    text-indent: 0;
+                }
+            }
+        }
+    }
+}
+
+// concept
+
+.concept {
+    padding: 120px 0 110px;
+    color: #fff;
+    background: $black;
+    text-align: center;
+    position: relative;
+
+    @include mq(sp) {
+        padding: 48px 0 64px;
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 207px;
+        left: 0;
+        bottom: 0;
+        background: url(../img/bg.png) center center / cover no-repeat;
+
+        @include mq(sp) {
+            height: 220px;
+            background: url(../img/bg2.png) center center / cover no-repeat;
+        }
+    }
+
+    .concept-title {
+        font-weight: bold;
+        font-size: 1.875rem;
+        letter-spacing: 0.05em;
+
+        @include mq(sp) {
+            font-size: 1.25rem;
+            line-height: 1.5;
+        }
+    }
+
+    .concept-text {
+        margin-top: 48px;
+        font-size: 1.125rem;
+        line-height: 1.5;
+        letter-spacing: 0.03em;
+
+        @include mq(sp) {
+            font-size: 1rem;
+            width: 82.6666%;
+            margin: 24px auto 0;
+        }
+
+        &:nth-of-type(n + 2) {
+            margin-top: 30px;
+
+            @include mq(sp) {
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+// section
+
+.section-lead {
+    text-align: center;
+    font-size: 1.125rem;
+    color: $green;
+    letter-spacing: 0.05em;
+
+    @include mq(sp) {
+        font-size: 0.875rem;
+    }
+}
+
+.section-title {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 3rem;
+    font-family: $english;
+    letter-spacing: 0.05em;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 50px;
+        height: 2px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -16px;
+        background: $green;
+
+        @include mq(sp) {
+            bottom: -12px;
+        }
+    }
+
+    @include mq(sp) {
+        margin-top: 12px;
+        font-size: 2rem;
+    }
+}
+
+.is-sp {
+    display: none;
+
+    @include mq(sp) {
+        display: block;
+    }
+}
+
+// about
+
+.about {
+    padding: 130px 0 150px;
+    background: #f2f2f2;
+
+    @include mq(sp) {
+        padding: 45px 0 64px;
+    }
+
+    .container {
+        max-width: 1100px;
+
+        .about-wrapper {
+            margin-top: 96px;
+
+            @include mq(sp) {
+                margin-top: 68px;
+            }
+
+            .about-box {
+                display: flex;
+                align-items: center;
+                position: relative;
+                z-index: 10;
+
+                @include mq(sp) {
+                    flex-direction: column-reverse;
+                }
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    width: 322px;
+                    height: 288px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    right: 0;
+                    background: url(../img/01.png) center center / contain no-repeat;
+                    z-index: -10;
+
+                    @include mq(sp) {
+                        display: none;
+                    }
+                }
+
+                &:nth-of-type(n + 2) {
+                    margin-top: 64px;
+
+                    @include mq(sp) {
+                        margin-top: 45px;
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    flex-direction: row-reverse;
+                    justify-content: space-between;
+
+                    @include mq(sp) {
+                        flex-direction: column-reverse;
+                    }
+
+                    &::after {
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 235px;
+                        background: url(../img/02.png) center center / contain no-repeat;
+                    }
+
+                    .about-textContents {
+                        margin: 0 70px 0 0;
+
+                        @include mq(sp) {
+                            margin: 0;
+                        }
+
+                        .about-body {
+                            &::after {
+                                @include mq(sp) {
+                                    background: url(../img/02.png) center center / contain no-repeat;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:last-of-type {
+                    &::after {
+                        background: url(../img/03.png) center center / contain no-repeat;
+                    }
+
+                    .about-body {
+                        font-size: 3rem;
+                    }
+                }
+
+                .about-picture {
+                    flex: 0 0 450px;
+
+                    @include mq(sp) {
+                        margin-top: 32px;
+                        flex: 0 0 100%;
+                        width: 345px;
+                    }
+                }
+
+                .about-textContents {
+                    margin-left: 70px;
+                    max-width: 450px;
+
+                    @include mq(sp) {
+                        margin: 0;
+                        width: 325px;
+                    }
+
+                    .about-title {
+                        font-size: 1.875rem;
+                        letter-spacing: 0.05em;
+                        line-height: 1.4666;
+                        font-weight: bold;
+
+                        @include mq(sp) {
+                            font-size: 1.5rem;
+                            line-height: 1.4166;
+                        }
+
+                        .about-title-inline {
+                            color: $green;
+                        }
+                    }
+
+                    .about-body {
+                        margin-top: 24px;
+                        font-size: 1.125rem;
+                        line-height: 1.5;
+                        letter-spacing: 0.03em;
+                        max-width: 400px;
+
+                        @include mq(sp) {
+                            margin-top: 16px;
+                            font-size: 1rem;
+                            position: relative;
+                        }
+
+                        &::after {
+                            @include mq(sp) {
+                                position: absolute;
+                                content: "";
+                                width: 183px;
+                                height: 216px;
+                                top: -50px;
+                                right: 0;
+                                background: url(../img/01.png) center center / contain no-repeat;
+                                z-index: -10;
+                            }
+                        }
+                    }
+
+                    .about-body2 {
+                        &::after {
+                            @include mq(sp) {
+                                background: url(../img/03.png) center center / contain no-repeat;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// salad
+
+.salad {
+    height: 450px;
+
+    @include mq(sp) {
+        height: 250px;
+    }
+}
+
+// menu
+
+.menu {
+    padding: 72px;
+    background: $black;
+
+    @include mq(tab) {
+        padding: 24px 16px;
+    }
+
+    .menu-inner {
+        padding: 80px 108px 100px;
+        border: 1px solid #fff;
+
+        @include mq(tab) {
+            padding: 32px 0;
+        }
+
+        .section-lead,
+        .section-title {
+            color: #fff;
+        }
+
+        .section-lead {
+            @include mq(tab) {
+                font-size: 0.875rem;
+            }
+        }
+
+        .section-title {
+            @include mq(tab) {
+                margin-top: 12px;
+                font-size: 2rem;
+            }
+
+            &::after {
+                background: #fff;
+
+                @include mq(tab) {
+                    bottom: -12px;
+                }
+            }
+        }
+
+        .menu-text {
+            margin-top: 48px;
+            text-align: center;
+            color: #fff;
+            font-size: 1.125rem;
+            letter-spacing: 0.03em;
+
+            @include mq(tab) {
+                margin-top: 60px;
+                font-size: 1rem;
+            }
+        }
+
+        .menu-area {
+            margin: 54px auto 0;
+            max-width: 953px;
+            display: flex;
+            position: relative;
+
+            @include mq(tab) {
+                flex-direction: column;
+                z-index: 10;
+            }
+
+            .menu-picture {
+                position: absolute;
+                top: 10px;
+                left: 0;
+
+                @include mq(tab) {
+                    position: relative;
+                    width: 315px;
+                    margin: 0 auto;
+                }
+            }
+
+            .menu-textContents {
+                margin: 80px 0 0 auto;
+                padding: 13px;
+                width: 592px;
+                background: #f2f2f2;
+                text-align: center;
+
+                @include mq(tab) {
+                    margin: -35px auto 0;
+                    z-index: -10;
+                    padding: 10px;
+                    width: 300px;
+                }
+
+                .menu-inner2 {
+                    padding-bottom: 32px;
+                    border: 1px solid #333;
+
+                    .menu-recommend {
+                        color: #fff;
+                        background: $green;
+                        display: inline-block;
+                        padding: 9px 0 14px;
+                        width: 251px;
+                        position: relative;
+                        top: -15px;
+
+                        @include mq(tab) {
+                            width: 211px;
+                            padding: 45px 0 16px;
+                            top: -11px;
+                        }
+
+                        .menu-recommendation {
+                            font-family: $english;
+                            font-size: 0.875rem;
+                            letter-spacing: 0.03em;
+
+                            @include mq(tab) {
+                                font-size: 0.75rem;
+                            }
+                        }
+
+                        .menu-leader {
+                            margin-top: 5px;
+                            font-size: 1.5rem;
+                            letter-spacing: 0.03em;
+
+                            @include mq(tab) {
+                                font-size: 1.125rem;
+                            }
+                        }
+                    }
+
+                    .menu-name {
+                        margin-top: 20px;
+                        font-size: 1.875rem;
+                        line-height: 1.4666;
+                        letter-spacing: 0.1em;
+                        font-weight: bold;
+
+                        @include mq(tab) {
+                            margin-top: 12px;
+                            font-size: 1.5rem;
+                            line-height: 1.5;
+                        }
+                    }
+
+                    .menu-priceArea {
+                        margin-top: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        letter-spacing: 0.1em;
+
+                        @include mq(tab) {
+                            margin-top: 16px;
+                        }
+
+                        .menu-yen {
+                            font-size: 1.5rem;
+                            font-family: $english;
+                            position: relative;
+                            bottom: -5px;
+
+                            @include mq(tab) {
+                                font-size: 1.125rem;
+                            }
+                        }
+
+                        .menu-price {
+                            margin-left: 5px;
+                            font-size: 2.5rem;
+                            font-family: $english;
+
+                            @include mq(tab) {
+                                font-size: 1.875rem;
+                            }
+                        }
+
+                        .menu-tax {
+                            font-size: 1.125rem;
+
+                            @include mq(tab) {
+                                font-size: 0.75rem;
+                            }
+                        }
+                    }
+
+                    .menu-kcal {
+                        margin-top: 20px;
+                        font-size: 1.5rem;
+                        letter-spacing: 0.03em;
+
+                        @include mq(tab) {
+                            margin-top: 16px;
+                            font-size: 0.875rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu-wrapper {
+            margin-top: 85px;
+            display: flex;
+            justify-content: space-between;
+
+            @include mq(tab) {
+                margin-top: 48px;
+                flex-direction: column;
+            }
+
+            .menu-box {
+                display: flex;
+                flex-direction: column;
+                flex: 0 1 48.6111%;
+
+                @include mq(tab) {
+                    flex: 0 1 100%;
+                    z-index: 10;
+                }
+
+                &:nth-of-type(2) {
+                    @include mq(tab) {
+                        margin-top: 48px;
+                    }
+                }
+
+                .menu-picture {
+                    width: 417px;
+                    height: 433px;
+                    margin: 0 auto;
+
+                    @include mq(tab) {
+                        width: 315px;
+                        height: auto;
+                    }
+                }
+
+                .menu-textContents {
+                    padding: 13px;
+                    background: #f2f2f2;
+                    text-align: center;
+
+                    @include mq(tab) {
+                        width: 300px;
+                        margin: -60px auto 0;
+                        padding: 10px;
+                        z-index: -10;
+                    }
+
+                    .menu-inner2 {
+                        padding: 60px 0 30px;
+                        border: 1px solid #333;
+
+                        @include mq(tab) {
+                            padding: 45px 0 32px;
+                        }
+
+                        .menu-name {
+                            font-weight: bold;
+                            font-size: 1.875rem;
+                            letter-spacing: 0.1em;
+
+                            @include mq(tab) {
+                                font-size: 1.5rem;
+                            }
+                        }
+
+                        .menu-priceArea {
+                            margin-top: 20px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            letter-spacing: 0.1em;
+
+                            @include mq(tab) {
+                                margin-top: 16px;
+                            }
+
+                            .menu-yen {
+                                font-family: $english;
+                                font-size: 1.5rem;
+                                position: relative;
+                                bottom: -5px;
+
+                                @include mq(tab) {
+                                    font-size: 1.125rem;
+                                }
+                            }
+
+                            .menu-price {
+                                margin-left: 5px;
+                                font-family: $english;
+                                font-size: 2.5rem;
+
+                                @include mq(tab) {
+                                    font-size: 1.875rem;
+                                }
+                            }
+
+                            .menu-tax {
+                                font-size: 1.125rem;
+
+                                @include mq(tab) {
+                                    font-size: 0.75rem;
+                                }
+                            }
+                        }
+
+                        .menu-kcal {
+                            margin-top: 20px;
+                            font-size: 1.5rem;
+                            letter-spacing: 0.03em;
+
+                            @include mq(tab) {
+                                margin-top: 16px;
+                                font-size: 0.875rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .insta {
+            margin-top: 80px;
+            padding: 13px;
+            background: #f2f2f2;
+            text-align: center;
+
+            @include mq(tab) {
+                margin-top: 48px;
+            }
+
+            .insta-inner {
+                padding: 0 10px 24px;
+                border: 1px solid #333;
+
+                @include mq(tab) {
+                    padding: 0 5px 24px;
+                }
+
+                .insta-title {
+                    padding: 18px 0;
+                    display: inline-block;
+                    color: #fff;
+                    background: $green;
+                    width: 360px;
+                    position: relative;
+                    top: -15px;
+                    font-size: 1.875rem;
+                    font-family: $english;
+                    letter-spacing: 0.05em;
+
+                    @include mq(tab) {
+                        padding: 10px 0;
+                        width: 180px;
+                        font-size: 1.5rem;
+                        top: -14px;
+                    }
+                }
+
+                .insta-text {
+                    margin-top: 15px;
+                    font-size: 1.125rem;
+                    letter-spacing: 0.05em;
+                    position: relative;
+
+                    @include mq(tab) {
+                        margin-top: 12px;
+                        font-size: 1rem;
+                        line-height: 1.5;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        width: 36px;
+                        height: 1px;
+                        left: calc(50% - 300px);
+                        top: 50%;
+                        transform: translateY(-50%) rotate(50deg);
+                        background: #333;
+
+                        @include mq(tab) {
+                            display: none;
+                        }
+                    }
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        width: 36px;
+                        height: 1px;
+                        right: calc(50% - 300px);
+                        top: 50%;
+                        transform: translateY(-50%) rotate(-50deg);
+                        background: #333;
+
+                        @include mq(tab) {
+                            display: none;
+                        }
+                    }
+                }
+
+                .insta-box {
+                    margin: 34px 30px 0;
+                    display: flex;
+                    justify-content: space-between;
+                    overflow-x: scroll;
+
+                    @include mq(tab) {
+                        margin: 20px 0 0;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                    }
+
+                    .insta-picture {
+                        flex: 0 0 231px;
+                        margin: 0 8px;
+
+                        @include mq(tab) {
+                            flex: 0 0 125px;
+                            margin: 5px;
+                        }
+                    }
+                }
+
+                .insta-id {
+                    margin-top: 12px;
+                    font-size: 1.125rem;
+
+                    @include mq(tab) {
+                        margin-top: 8px;
+                        font-size: 1rem;
+                    }
+                }
+
+                .insta-btnArea {
+                    margin-top: 26px;
+
+                    @include mq(tab) {
+                        margin-top: 24px;
+                    }
+
+                    .insta-btn {
+                        padding: 16px 77px 16px 56px;
+                        display: inline-block;
+                        border: 1px solid #333;
+                        width: 300px;
+                        font-weight: bold;
+                        letter-spacing: 0.03em;
+                        position: relative;
+
+                        @include mq(tab) {
+                            padding: 16px 0;
+                            width: 260px;
+                        }
+
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            width: 16px;
+                            height: 16px;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            right: 37px;
+                            background: url(../img/link.png) center center / cover no-repeat;
+                            transition: all 0.4s;
+
+                            @include mq(tab) {
+                                width: 14px;
+                                height: 14px;
+                                right: 20px;
+                            }
+                        }
+
+                        &:hover {
+                            color: #fff;
+                            background: #333;
+
+                            &::after {
+                                background: url(../img/link-w.png) center center / cover no-repeat;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// cafe
+
+.cafe {
+    height: 450px;
+
+    @include mq(sp) {
+        height: 250px;
+    }
+}
+
+// shop
+
+.shop {
+    padding: 120px 0;
+    background: #f2f2f2;
+
+    @include mq(tab) {
+        padding: 64px 0;
+    }
+
+    .section-lead {
+        font-size: 0.875rem;
+    }
+
+    .section-title {
+        margin-top: 12px;
+        font-size: 2rem;
+
+        &::after {
+            bottom: -12px;
+        }
+    }
+
+    .shop-iframe {
+        margin-top: 96px;
+
+        @include mq(tab) {
+            margin-top: 68px;
+        }
+
+        iframe {
+            width: 100%;
+
+            @include mq(tab) {
+                height: 250px;
+            }
+        }
+    }
+
+    .shop-box {
+        max-width: 1250px;
+        margin: 80px 0 0 auto;
+        display: flex;
+        align-items: center;
+
+        @include mq(tab) {
+            margin: 56px 0 0 0;
+            flex-direction: column;
+        }
+
+        .shop-textContents {
+            flex: 0 0 430px;
+            margin-left: 15px;
+
+            @include mq(tab) {
+                flex: 0 0 320px;
+                margin: 0;
+            }
+
+            .shop-nameArea {
+                display: flex;
+                align-items: center;
+
+                @include mq(tab) {
+                    justify-content: center;
+                }
+
+                .shop-lead {
+                    font-size: 1.125rem;
+                    font-family: $english;
+                    position: relative;
+                    bottom: -3px;
+                }
+
+                .shop-name {
+                    font-size: 2rem;
+                    font-family: $english;
+                    letter-spacing: 0.03em;
+                    margin-left: 5px;
+                }
+
+                .shop-furigana {
+                    font-size: 1.125rem;
+                    letter-spacing: 0.03em;
+
+                    @include mq(tab) {
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+            .shop-info {
+                margin-top: 25px;
+                font-size: 1.125rem;
+                line-height: 2;
+                letter-spacing: 0.03em;
+
+                @include mq(tab) {
+                    font-size: 1rem;
+                    line-height: 1.6875;
+                    margin: 25px 15px 0;
+                    width: 325px;
+                }
+            }
+
+            .shop-table {
+                margin-top: 17px;
+
+                @include mq(tab) {
+                    margin: 5px 15px 0;
+                    width: 325px;
+                }
+
+                th,
+                td {
+                    font-size: 1.125rem;
+                    letter-spacing: 0.03em;
+                    line-height: 1.5;
+                    font-weight: normal;
+
+                    @include mq(tab) {
+                        font-size: 1rem;
+                        line-height: 1.6875;
+                    }
+                }
+
+                th {
+                    padding: 3px 0;
+
+                    @include mq(sp) {
+                        width: 70px;
+                    }
+                }
+
+                td {
+                    padding: 5px 0 5px 20px;
+
+                    @include mq(tab) {
+                        padding: 3px 0 3px 10px;
+                    }
+                }
+            }
+        }
+
+        .shop-picture {
+            margin-left: auto;
+
+            @include mq(tab) {
+                margin: 40px auto 0;
+                width: 345px;
+            }
+
+            img {
+                @include mq(tab) {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .container {
+        max-width: 1146px;
+
+        .shop-area {
+            margin-top: 80px;
+            padding: 30px 33px 41px;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(161, 159, 159, 0.6);
+            position: relative;
+
+            @include mq(tab) {
+                margin: 98px auto 0;
+                width: 345px;
+                padding: 18px 10px 113px;
+                z-index: 10;
+            }
+
+            &::before {
+                position: absolute;
+                content: "";
+                width: 288px;
+                height: 240px;
+                top: -70px;
+                left: -100px;
+                background: url(../img/stamp.png) center center / cover no-repeat;
+
+                @include mq(tab) {
+                    width: 112px;
+                    height: 93px;
+                    top: -40px;
+                    left: -20px;
+                }
+            }
+
+            .shop-imageArea {
+                display: flex;
+                width: 100%;
+
+                @include mq(tab) {
+                    flex-direction: column;
+                }
+
+                .shop-image {
+                    flex: 0 0 58.3333%;
+
+                    @include mq(tab) {
+                        flex: 0 0 100%;
+                    }
+                }
+
+                .shop-image2 {
+                    flex: 0 1 41.6667%;
+
+                    @include mq(tab) {
+                        flex: 0 0 100%;
+                    }
+                }
+            }
+        }
+
+        .shop-bodyArea {
+            width: 595px;
+            margin: 45px auto 0;
+            position: relative;
+
+            @include mq(tab) {
+                width: 100%;
+                margin: 63px 0 0 0;
+            }
+
+            &::before {
+                position: absolute;
+                content: "";
+                width: 199px;
+                height: 69px;
+                left: -240px;
+                top: -20px;
+                background: url(../img/you.png) center center / contain no-repeat;
+
+                @include mq(tab) {
+                    width: 125px;
+                    height: 43px;
+                    left: 0;
+                    top: -48px;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: "";
+                width: 308px;
+                height: 85px;
+                right: -220px;
+                bottom: -20px;
+                background: url(../img/nice.png) center center / cover no-repeat;
+
+                @include mq(tab) {
+                    width: 280px;
+                    right: 0;
+                    bottom: -70px;
+                    z-index: -10;
+                }
+            }
+
+            .shop-body {
+                color: #4f4f4f;
+                line-height: 2.5;
+                border-bottom: 1px solid #c4c4c4;
+            }
+        }
+    }
+}
+
+// contact
+
+.contact {
+    padding: 130px 0;
+    background: url(../img/contact.jpg) center center / cover no-repeat;
+
+    @include mq(sp) {
+        padding: 64px 0;
+    }
+
+    .contact-box {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 64px 0 72px;
+        background: #f2f2f2;
+
+        @include mq(sp) {
+            padding: 64px 15px;
+        }
+
+        .contact-text {
+            margin-top: 46px;
+            text-align: center;
+            letter-spacing: 0.03em;
+
+            @include mq(sp) {
+                margin-top: 60px;
+                line-height: 1.5;
+            }
+        }
+
+        .contact-form {
+            max-width: 520px;
+            margin: 48px auto 0;
+
+            @include mq(sp) {
+                margin: 32px auto 0;
+            }
+
+            .contact-item {
+                margin-top: 32px;
+
+                &:nth-of-type(4) {
+                    .contact-input {
+                        height: 160px;
+                    }
+                }
+
+                &:nth-of-type(5) {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+
+                .contact-name {
+                    font-size: 1.125rem;
+
+                    @include mq(sp) {
+                        font-size: 1rem;
+                    }
+
+                    .contact-name-label {
+                        font-size: 0.75rem;
+                        color: #fff;
+                        background: $green;
+                        padding: 2px 8px;
+                        border-radius: 6px;
+                        margin-left: 16px;
+                        position: relative;
+                        top: -2px;
+
+                        @include mq(sp) {
+                            margin-left: 10px;
+                        }
+                    }
+                }
+
+                .contact-input {
+                    margin-top: 8px;
+                    border: 1px solid #2f2f2f;
+                    color: #bdbdbd;
+                    background: #fff;
+                    height: 50px;
+                    padding-left: 23px;
+                    transition: all 0.4s;
+
+                    @include mq(sp) {
+                        height: 56px;
+                        padding-left: 16px;
+                    }
+
+                    &:hover {
+                        border: 1px solid $green;
+                        box-shadow: 0 0 4px #159741;
+                    }
+
+                    input {
+                        width: 100%;
+                        line-height: 50px;
+
+                        @include mq(sp) {
+                            line-height: 56px;
+                        }
+                    }
+
+                    textarea {
+                        width: 100%;
+                        height: 100%;
+                        padding-top: 23px;
+                        resize: none;
+
+                        @include mq(sp) {
+                            padding-top: 13px;
+                        }
+                    }
+                }
+
+                .contact-checkbox {
+                    opacity: 0;
+
+                    &:checked + .contact-privacy::after {
+                        opacity: 1;
+                    }
+
+                    &:hover + .contact-privacy::before {
+                        border: 1px solid $green;
+                        box-shadow: 0 0 4px $green;
+                    }
+
+                    &:active + .contact-privacy::before {
+                        background: rgba(21, 151, 65, 0.15);
+                    }
+                }
+
+                .contact-privacy {
+                    margin-left: 12px;
+                    font-size: 1.125rem;
+                    letter-spacing: 0.05em;
+                    position: relative;
+                    left: 22px;
+
+                    @include mq(sp) {
+                        font-size: 1rem;
+                        left: 17px;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        content: "";
+                        width: 40px;
+                        height: 40px;
+                        border: 1px solid #4f4f4f;
+                        left: -54px;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        background: #fff;
+                        transition: all 0.4s;
+
+                        @include mq(sp) {
+                            width: 30px;
+                            height: 30px;
+                            left: -50px;
+                        }
+                    }
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        height: 12px;
+                        width: 28px;
+                        border-left: 2px solid $green;
+                        border-bottom: 2px solid $green;
+                        left: -48px;
+                        top: 40%;
+                        transform: translateY(-50%) rotate(-45deg);
+                        opacity: 0;
+                        transition: all 0.4s;
+                    }
+
+                    .contact-privacy-link {
+                        color: $green;
+                        border-bottom: 1px solid $green;
+                    }
+                }
+            }
+
+            .contact-btnArea {
+                margin-top: 40px;
+                text-align: center;
+
+                .contact-btn {
+                    padding: 15px 0;
+                    width: 239px;
+                    color: #fff;
+                    background: $green;
+                    font-size: 1.125rem;
+                    letter-spacing: 0.05em;
+                    transition: all 0.4s;
+
+                    @include mq(sp) {
+                        width: 300px;
+                    }
+
+                    &:hover {
+                        opacity: 0.7;
+                    }
+
+                    &:disabled {
+                        background: #bdbdbd;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// privacy
+
+.privacy {
+    width: 80%;
+    height: 80%;
+    overflow: scroll;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+    padding: 35px 62px;
+    background: #fff;
+    z-index: 10;
+    display: none;
+
+    @include mq(sp) {
+        width: 90%;
+        height: 90%;
+        padding: 15px 30px;
+    }
+
+    .container {
+        max-width: 805px;
+        position: relative;
+
+        .privacy-picture {
+            position: absolute;
+            text-align: right;
+            width: 23px;
+            height: 23px;
+            top: -10px;
+            right: -20px;
+            cursor: pointer;
+
+            @include mq(sp) {
+                width: 20px;
+                height: 20px;
+                top: 0;
+            }
+        }
+
+        .section-lead {
+            font-size: 0.75rem;
+        }
+
+        .section-title {
+            margin-top: 8px;
+            font-size: 1.5rem;
+
+            @include mq(sp) {
+                margin-top: 5px;
+                font-size: 1.25rem;
+            }
+
+            &::after {
+                width: 40px;
+                bottom: -13px;
+
+                @include mq(sp) {
+                    bottom: -10px;
+                }
+            }
+        }
+
+        .privacy-wrapper {
+            margin-top: 48px;
+
+            @include mq(sp) {
+                margin-top: 35px;
+            }
+
+            .privacy-text {
+                line-height: 1.5;
+
+                @include mq(sp) {
+                    font-size: 0.875rem;
+                    line-height: 1.3;
+                }
+            }
+
+            .privacy-policy {
+                margin-top: 30px;
+                height: 280px;
+                overflow: scroll;
+
+                @include mq(sp) {
+                    height: 200px;
+                }
+
+                .privacy-title {
+                    font-weight: bold;
+
+                    @include mq(sp) {
+                        font-size: 0.875rem;
+                    }
+
+                    &:nth-of-type(n + 2) {
+                        margin-top: 30px;
+
+                        @include mq(sp) {
+                            margin-top: 20px;
+                        }
+                    }
+                }
+
+                .privacy-body {
+                    margin-top: 5px;
+                    line-height: 1.5;
+                    font-size: 0.875rem;
+
+                    @include mq(sp) {
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// footer
+
+footer {
+    padding: 56px 9px;
+    background: #f2f2f2;
+
+    @include mq(sp) {
+        padding: 48px 0 10px;   
+    }
+
+    .footer-snsList {
+        display: flex;
+        justify-content: center;
+
+        .footer-snsItem {
+            margin: 0 20px;
+
+            .footer-snsLink {
+                font-size: 2.5rem;
+
+                @include mq(sp) {
+                    font-size: 3rem;
+                }
+            }
+        }
+    }
+
+    .footer-list {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+
+        .footer-item {
+            margin: 0 20px;
+
+            @include mq(sp) {
+                margin: 0 16px;
+            }
+
+            .footer-link {
+                font-family: $english;
+                font-size: 1.125rem;
+                letter-spacing: 0.03em;
+
+                @include mq(sp) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .footer-logoArea {
+        margin-top: 36px;
+        text-align: center;
+
+        @include mq(sp) {
+            margin-top: 34px;
+        }
+
+        .footer-logoLink {
+            display: inline-block;
+
+            .footer-logo {
+                width: 167px;
+            }
+        }
+    }
+
+    .footer-copy {
+        margin-top: 20px;
+        text-align: center;
+        font-size: 0.75rem;
+
+        @include mq(sp) {
+            margin-top: 30px;
+        }
+    }
+}
